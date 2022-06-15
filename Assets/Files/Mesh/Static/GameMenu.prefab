@@ -182,7 +182,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8061512915314865888}
   m_Layer: 0
-  m_Name: Mainmenu
+  m_Name: GameMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
