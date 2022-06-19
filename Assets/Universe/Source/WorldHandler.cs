@@ -23,6 +23,7 @@ public class WorldHandler : MonoBehaviour
 
     // Player Position
     public Vector3 PlayerPosition;
+    public Vector3 OldPlayerPosition;
 
 
     // Start is called before the first frame update
@@ -30,8 +31,10 @@ public class WorldHandler : MonoBehaviour
     {
         test = 1;
 
-        Invoke("SpawnFloor", 0.0f);
         this.SetFile();
+        this.SetPlayerPosition();
+        this.OldPlayerPosition = this.PlayerPosition;
+        this.SpawnFloor(this.OldPlayerPosition);
     }
 
     void SetFile()
@@ -66,23 +69,23 @@ public class WorldHandler : MonoBehaviour
         Debug.Log(m_MainCamera.transform.position);
     }
 
-    void SpawnFloor()
+    void SpawnFloor(Vector3 PlayerPositionToRender)
     {
         // calck starting Position
-        float xStart = PlayerPosition.x;
-        float zStart = PlayerPosition.z;
+        float xStart = PlayerPositionToRender.x - 50.0f;
+        float zStart = PlayerPositionToRender.z - 50.0f;
 
 
         Vector3 myVector;
 
 
-        for (float xAxisInt = 0; xAxisInt < 10; xAxisInt++)
+        for (float xAxisFloat = xStart; xAxisFloat < xStart + 100; xAxisFloat = xAxisFloat + 10)
         {
-            float xAxisFloat = (float)xAxisInt * 10;
+            
 
-            for (float zAxisInt = 0; zAxisInt < 10; zAxisInt++)
+            for (float zAxisFloat = zStart; zAxisFloat < zStart + 100; zAxisFloat = zAxisFloat + 10)
             {
-                float zAxisFloat = (float)zAxisInt * 10;
+
                 myVector = new Vector3(xAxisFloat, 0.0f, zAxisFloat);
                 Instantiate(Floor, myVector, gameObject.transform.rotation);
 
@@ -97,6 +100,8 @@ public class WorldHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SetPlayerPosition();
+        //checken in welche richtung sich bewegt wird, und neu render funktion triggern
+        if(PlayerPosition.x)
     }
 }
