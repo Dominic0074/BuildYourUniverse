@@ -102,6 +102,6 @@ public class WorldHandler : MonoBehaviour
     {
         SetPlayerPosition();
         //checken in welche richtung sich bewegt wird, und neu render funktion triggern
-        if(PlayerPosition.x)
+        //if (PlayerPosition.x) 
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
+using Microsoft.MixedReality.Toolkit.CameraSystem;
 
 public class voiceRecognition: MonoBehaviour
 {
@@ -37,9 +38,8 @@ public class voiceRecognition: MonoBehaviour
         }
         if (args.text == m_Keywords[1])
         {
+            
             playerPosition = player.transform.position;
-            playerPosition.x = playerPosition.x + 1;
-            playerPosition.z = playerPosition.z + 1;
             Instantiate(shop, playerPosition,Quaternion.identity);
         }
         if (args.text == m_Keywords[2])
