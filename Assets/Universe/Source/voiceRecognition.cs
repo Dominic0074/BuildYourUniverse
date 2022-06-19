@@ -10,6 +10,7 @@ public class voiceRecognition: MonoBehaviour
     private string[] m_Keywords;
 
     private KeywordRecognizer m_Recognizer;
+    //private Camera camera;
 
     public GameObject shop;
     public GameObject games;

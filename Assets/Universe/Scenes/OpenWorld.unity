@@ -217,6 +217,67 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &797130355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797130357}
+  - component: {fileID: 797130358}
+  m_Layer: 0
+  m_Name: DayNightCycleHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &797130357
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797130355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &797130358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797130355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c97d855e6df1f024f932f38bad866d18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeMultiplier: 0
+  startHour: 0
+  timeText: {fileID: 0}
+  sunLight: {fileID: 0}
+  sunriseHour: 0
+  sunsetHour: 0
+  dayAmbientLight: {r: 0, g: 0, b: 0, a: 0}
+  nightAmbientLight: {r: 0, g: 0, b: 0, a: 0}
+  lightChangeCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  maxSunLightIntensity: 0
+  moonLight: {fileID: 0}
+  maxMoonLightIntensity: 0
 --- !u!1 &891200005
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +312,7 @@ MonoBehaviour:
   - Shop
   - Games
   - Options
-  shop: {fileID: 6396404797405156600, guid: c797542ca98d6e746bb9c95ea77fa30b, type: 3}
+  shop: {fileID: 252498679604840191, guid: c9dfd69044d84c64d87159bbe68f6d96, type: 3}
   games: {fileID: 3734759582664893490, guid: b4550229ce47bc84c99ed52d70ef8c9f, type: 3}
   player: {fileID: 1360743198}
 --- !u!4 &891200007
@@ -335,6 +396,7 @@ MonoBehaviour:
   spawnerDone: 0
   filestatus: 
   PlayerPosition: {x: 1, y: 0, z: 0}
+  OldPlayerPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1230026290
 Transform:
   m_ObjectHideFlags: 0
