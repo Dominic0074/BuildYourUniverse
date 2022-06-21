@@ -9,33 +9,20 @@ using UnityEngine;
 public class WorldHandler : MonoBehaviour
 {
 
-    GameObject currentPoint;
-
     public GameObject Floor;
-    public int test;
-    public bool spawnerDone;
-    
-    public string filestatus;
+    public GameObject[][] LoadedChuncks;
 
     // save Game vars
     private BinaryFormatter formatter;
     private FileStream file;
+    public string filestatus;
 
     // Player Position
     public Vector3 PlayerPosition;
     public Vector3 OldPlayerPosition;
-
+    public Vector3 RoundetPlayerPosition;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        test = 1;
-
-        this.SetFile();
-        this.SetPlayerPosition();
-        this.OldPlayerPosition = this.PlayerPosition;
-        this.SpawnFloor(this.OldPlayerPosition);
-    }
 
     void SetFile()
     {
@@ -66,7 +53,6 @@ public class WorldHandler : MonoBehaviour
 
         PlayerPosition = m_MainCamera.transform.position;
         
-        Debug.Log(m_MainCamera.transform.position);
     }
 
     void SpawnFloor(Vector3 PlayerPositionToRender)
@@ -74,7 +60,7 @@ public class WorldHandler : MonoBehaviour
         // calck starting Position
         float xStart = PlayerPositionToRender.x - 50.0f;
         float zStart = PlayerPositionToRender.z - 50.0f;
-
+        int x = 0, z = 0;
 
         Vector3 myVector;
 
@@ -85,23 +71,70 @@ public class WorldHandler : MonoBehaviour
 
             for (float zAxisFloat = zStart; zAxisFloat < zStart + 100; zAxisFloat = zAxisFloat + 10)
             {
+                 
 
                 myVector = new Vector3(xAxisFloat, 0.0f, zAxisFloat);
-                Instantiate(Floor, myVector, gameObject.transform.rotation);
-
+                LoadedChuncks[x][z] = Instantiate(Floor, myVector, gameObject.transform.rotation);
+                z++;
             }
+
+            x++;
         }
 
-        spawnerDone = true;
 
     }
 
+    Vector3 RoundPlayerPosition()
+    {
+        //round x
+        int Xround = (int)this.PlayerPosition.x / 10;
+        int Zround = (int)this.PlayerPosition.z / 10;
+
+        Xround = Xround * 10;
+        Zround = Zround * 10;
+
+        Vector3 roundetpos = new Vector3(Xround, 0.0f, Zround);
+
+        return roundetpos;
+    }
+
+
+    void Start()
+    {
+
+        this.SetFile();
+        this.SetPlayerPosition();
+        this.OldPlayerPosition = RoundPlayerPosition();
+        this.SpawnFloor(this.OldPlayerPosition);
+    }
 
     // Update is called once per frame
     void Update()
     {
         SetPlayerPosition();
+        this.RoundetPlayerPosition = RoundPlayerPosition();
         //checken in welche richtung sich bewegt wird, und neu render funktion triggern
-        //if (PlayerPosition.x) 
+        if (RoundetPlayerPosition.x- OldPlayerPosition.x > 10 )
+        {
+            for (int x = 0; x < 10; x++)
+            {
+                for (int z = 0; z < 10; z++)
+                {
+
+                }
+            }
+        }
+        else if (RoundetPlayerPosition.x- OldPlayerPosition.x < -10 )
+        {
+
+        }
+        else if (RoundetPlayerPosition.z- OldPlayerPosition.z > 10 )
+        {
+
+        }
+        else if (RoundetPlayerPosition.z- OldPlayerPosition.z < -10 )
+        {
+
+        }
     }
 }
