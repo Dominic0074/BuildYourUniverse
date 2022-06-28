@@ -8,41 +8,17 @@ using UnityEngine;
 
 public class WorldHandler : MonoBehaviour
 {
-
     public GameObject Floor;
     public GameObject[][] LoadedChuncks;
 
-    // save Game vars
-    private BinaryFormatter formatter;
-    private FileStream file;
-    public string filestatus;
-
-    // Player Position
+    //player position
     public Vector3 PlayerPosition;
     public Vector3 OldPlayerPosition;
     public Vector3 RoundetPlayerPosition;
 
-    // Start is called before the first frame update
 
-    void SetFile()
-    {
-        if (File.Exists(Application.persistentDataPath
-               + "/MySaveData.dat"))
-        {
-            this.file = File.Open(Application.persistentDataPath
-                       + "/MySaveData.dat", FileMode.Open);
-            filestatus = "exist";
-        }
-        else
-        {
-            this.file = File.Create(Application.persistentDataPath
-                         + "/MySaveData.dat");
-            filestatus = "created";
-        }
 
-        this.formatter = new BinaryFormatter();
-    }
-
+    // Set Player Position 
     void SetPlayerPosition()
     {
         Camera m_MainCamera;
@@ -52,38 +28,10 @@ public class WorldHandler : MonoBehaviour
         m_MainCamera.enabled = true;
 
         PlayerPosition = m_MainCamera.transform.position;
-        
-    }
-
-    void SpawnFloor(Vector3 PlayerPositionToRender)
-    {
-        // calck starting Position
-        float xStart = PlayerPositionToRender.x - 50.0f;
-        float zStart = PlayerPositionToRender.z - 50.0f;
-        int x = 0, z = 0;
-
-        Vector3 myVector;
-
-
-        for (float xAxisFloat = xStart; xAxisFloat < xStart + 100; xAxisFloat = xAxisFloat + 10)
-        {
-            
-
-            for (float zAxisFloat = zStart; zAxisFloat < zStart + 100; zAxisFloat = zAxisFloat + 10)
-            {
-                 
-
-                myVector = new Vector3(xAxisFloat, 0.0f, zAxisFloat);
-                LoadedChuncks[x][z] = Instantiate(Floor, myVector, gameObject.transform.rotation);
-                z++;
-            }
-
-            x++;
-        }
-
 
     }
 
+    // Round Player Position to get the begin of the actual Chunk
     Vector3 RoundPlayerPosition()
     {
         //round x
@@ -98,11 +46,188 @@ public class WorldHandler : MonoBehaviour
         return roundetpos;
     }
 
+    //Load 1 chunk
+    void LoadChunk (int xArray, int zArray, Vector3 Vector)
+    {
+                LoadedChuncks[xArray][zArray] = Instantiate(Floor, Vector, gameObject.transform.rotation);
+    }
+
+    void DestroyChunk (int xAxis, int zAxis)
+    {
+        Destroy(LoadedChuncks[xAxis][zAxis]);
+    }
+
+    //spawns initial the floor arount the player
+    void SpawnFloor(Vector3 PlayerPositionToRender)
+    {
+        // calck starting Position
+        float xStart = PlayerPositionToRender.x - 50.0f;
+        float zStart = PlayerPositionToRender.z - 50.0f;
+        int x = 0, z = 0;
+
+        Vector3 myVector;
+
+
+        for (float xAxisFloat = xStart; xAxisFloat < xStart + 100; xAxisFloat = xAxisFloat + 10)
+        {
+
+
+            for (float zAxisFloat = zStart; zAxisFloat < zStart + 100; zAxisFloat = zAxisFloat + 10)
+            {
+
+
+                myVector = new Vector3(xAxisFloat, 0.0f, zAxisFloat);
+                LoadChunk(x,z, myVector);
+                z++;
+               
+            }
+
+            x++;
+        }
+
+
+    }
+
+    // moove rendert field in Positiv x coordinate
+    void MoovePosX(Vector3 PlayerPositionToRender)
+    {
+        float xStart = PlayerPositionToRender.x - 50.0f;
+        float zStart = PlayerPositionToRender.z - 50.0f;
+
+        Vector3 myVector;
+
+        for (int xAxis = 0; xAxis <10; xAxis++ )
+        {
+            for (int zAxis = 0; zAxis < 10; zAxis++)
+            {
+                if(xAxis == 0)
+                {
+
+                    DestroyChunk(xAxis, zAxis);
+                }
+                else if (xAxis == 9)
+                {
+                    myVector = new Vector3(xStart, 0.0f, zStart);
+                    LoadChunk(xAxis, zAxis, myVector);
+                }
+                else
+                {
+                    LoadedChuncks[xAxis][zAxis] = LoadedChuncks[xAxis + 1][zAxis];
+
+                }
+                zStart = zStart + 10.0f;
+            }
+            xStart = xStart + 10.0f;
+        }
+            
+    }
+
+    // moove rendert field in Negativ x coordinate
+    void MooveNegX(Vector3 PlayerPositionToRender)
+    {
+        float xStart = PlayerPositionToRender.x + 50.0f;
+        float zStart = PlayerPositionToRender.z + 50.0f;
+
+        Vector3 myVector;
+
+        for (int xAxis = 9; xAxis >= 0; xAxis--)
+        {
+            for (int zAxis = 0; zAxis < 10; zAxis++)
+            {
+                if (xAxis == 9)
+                {
+
+                    DestroyChunk(xAxis, zAxis);
+                }
+                else if (xAxis == 0)
+                {
+                    myVector = new Vector3(xStart, 0.0f, zStart);
+                    LoadChunk(xAxis, zAxis, myVector);
+                }
+                else
+                {
+                    LoadedChuncks[xAxis][zAxis] = LoadedChuncks[xAxis + 1][zAxis];
+
+                }
+                zStart = zStart - 10.0f;
+            }
+            xStart = xStart - 10.0f;
+        }
+
+    }
+
+    // moove rendert field in Positiv x coordinate
+    void MoovePosZ(Vector3 PlayerPositionToRender)
+    {
+        float xStart = PlayerPositionToRender.x - 50.0f;
+        float zStart = PlayerPositionToRender.z - 50.0f;
+
+        Vector3 myVector;
+
+        for (int zAxis = 0; zAxis < 10; zAxis++)
+        {
+            for (int xAxis = 0; xAxis < 10; xAxis++)
+            {
+                if (xAxis == 0)
+                {
+
+                    DestroyChunk(xAxis, zAxis);
+                }
+                else if (xAxis == 9)
+                {
+                    myVector = new Vector3(xStart, 0.0f, zStart);
+                    LoadChunk(xAxis, zAxis, myVector);
+                }
+                else
+                {
+                    LoadedChuncks[xAxis][zAxis] = LoadedChuncks[xAxis + 1][zAxis];
+
+                }
+                zStart = zStart + 10.0f;
+            }
+            xStart = xStart + 10.0f;
+        }
+
+    }
+
+    // moove rendert field in Negativ x coordinate
+    void MooveNegZ(Vector3 PlayerPositionToRender)
+    {
+        float xStart = PlayerPositionToRender.x + 50.0f;
+        float zStart = PlayerPositionToRender.z + 50.0f;
+
+        Vector3 myVector;
+
+        for (int zAxis = 9; zAxis >= 0; zAxis--)
+        {
+            for (int xAxis = 0; xAxis < 10; xAxis++)
+            {
+                if (xAxis == 9)
+                {
+
+                    DestroyChunk(xAxis, zAxis);
+                }
+                else if (xAxis == 0)
+                {
+                    myVector = new Vector3(xStart, 0.0f, zStart);
+                    LoadChunk(xAxis, zAxis, myVector);
+                }
+                else
+                {
+                    LoadedChuncks[xAxis][zAxis] = LoadedChuncks[xAxis + 1][zAxis];
+
+                }
+                zStart = zStart - 10.0f;
+            }
+            xStart = xStart - 10.0f;
+        }
+
+    }
 
     void Start()
     {
 
-        this.SetFile();
+        
         this.SetPlayerPosition();
         this.OldPlayerPosition = RoundPlayerPosition();
         this.SpawnFloor(this.OldPlayerPosition);
@@ -113,28 +238,26 @@ public class WorldHandler : MonoBehaviour
     {
         SetPlayerPosition();
         this.RoundetPlayerPosition = RoundPlayerPosition();
+
+
         //checken in welche richtung sich bewegt wird, und neu render funktion triggern
-        if (RoundetPlayerPosition.x- OldPlayerPosition.x > 10 )
+        if (RoundetPlayerPosition.x - OldPlayerPosition.x > 10)
         {
-            for (int x = 0; x < 10; x++)
-            {
-                for (int z = 0; z < 10; z++)
-                {
-
-                }
-            }
+            MoovePosX(this.RoundetPlayerPosition);
         }
-        else if (RoundetPlayerPosition.x- OldPlayerPosition.x < -10 )
+        else if (RoundetPlayerPosition.x - OldPlayerPosition.x < -10)
         {
-
+            MooveNegX(this.RoundetPlayerPosition);
         }
-        else if (RoundetPlayerPosition.z- OldPlayerPosition.z > 10 )
+        else if (RoundetPlayerPosition.z - OldPlayerPosition.z > 10)
         {
-
+            MoovePosZ(this.RoundetPlayerPosition);
         }
-        else if (RoundetPlayerPosition.z- OldPlayerPosition.z < -10 )
+        else if (RoundetPlayerPosition.z - OldPlayerPosition.z < -10)
         {
-
+            MooveNegZ(this.RoundetPlayerPosition);
         }
     }
+
+
 }
