@@ -197,6 +197,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 5540939864687942012, guid: 80583b2cbd504c64ab68035bfaccd6c0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80583b2cbd504c64ab68035bfaccd6c0, type: 3}
 --- !u!1 &627476295
@@ -573,6 +577,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cans
       objectReference: {fileID: 0}
+    - target: {fileID: 9124741998097514206, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434232818597, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434274696115, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434318267323, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434407283361, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434428810337, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434574893894, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434739520274, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428434798320597, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126428435624310684, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d02c3cdc50bd80941bd3fb59896a2a90, type: 3}
 --- !u!1 &1449234919 stripped
@@ -592,6 +636,32 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -629719859055844128, guid: 8f9e4da5668113a4da8b4efea4a9499f, type: 3}
+--- !u!114 &1449234922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449234919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f150a64efdf1640b74013094218850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!64 &1449234923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449234919}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -629719859055844128, guid: 8f9e4da5668113a4da8b4efea4a9499f, type: 3}
 --- !u!1 &2002025366
