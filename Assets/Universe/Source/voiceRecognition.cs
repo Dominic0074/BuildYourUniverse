@@ -2,7 +2,6 @@ using System;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Windows.Speech;
-using Microsoft.MixedReality.Toolkit.CameraSystem;
 
 public class voiceRecognition: MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class voiceRecognition: MonoBehaviour
     private string[] m_Keywords;
 
     private KeywordRecognizer m_Recognizer;
-    //private Camera camera;
 
     public GameObject shop;
     public GameObject games;
@@ -35,7 +33,7 @@ public class voiceRecognition: MonoBehaviour
 
         if(args.text == m_Keywords[0])
         {
-            
+            Application.Quit();
         }
         if (args.text == m_Keywords[1])
         {
