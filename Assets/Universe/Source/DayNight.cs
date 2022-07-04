@@ -116,7 +116,7 @@ public class DayNight : MonoBehaviour
 
             double percentage = timeSinceMoonStart.TotalMinutes / moonStartToEndDuration.TotalMinutes;
 
-            moonLightRotation = Mathf.Lerp(180, 360, (float)percentage);
+            moonLightRotation = Mathf.Lerp(0, 180, (float)percentage);
         }
         else
         {
@@ -125,7 +125,7 @@ public class DayNight : MonoBehaviour
 
             double percentage = timeSinceMoonEnd.TotalMinutes / moonEndToStartDuration.TotalMinutes;
 
-            moonLightRotation = Mathf.Lerp(0, 180, (float)percentage);
+            moonLightRotation = Mathf.Lerp(180, 360, (float)percentage);
         }
 
         moonLight.transform.rotation = Quaternion.AngleAxis(moonLightRotation, Vector3.right);
