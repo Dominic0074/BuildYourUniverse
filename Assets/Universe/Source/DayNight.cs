@@ -48,6 +48,10 @@ public class DayNight : MonoBehaviour
 
     private TimeSpan sunsetTime;
 
+    private TimeSpan moonStart;
+
+    private TimeSpan moonEnd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +103,32 @@ public class DayNight : MonoBehaviour
         }
 
         sunLight.transform.rotation = Quaternion.AngleAxis(sunLightRotation, Vector3.right);
+    }
+
+    private void RotateMoon()
+    {
+        float moonLightRotation;
+
+        if (currentTime.TimeOfDay > moonStart && currentTime.TimeOfDay < moonEnd)
+        {
+            TimeSpan moonStartToEndDuration = CalculateTimeDifference(moonStart, moonEnd);
+            TimeSpan timeSinceMoonStart = CalculateTimeDifference(moonStart, currentTime.TimeOfDay);
+
+            double percentage = timeSinceMoonStart.TotalMinutes / moonStartToEndDuration.TotalMinutes;
+
+            moonLightRotation = Mathf.Lerp(180, 360, (float)percentage);
+        }
+        else
+        {
+            TimeSpan moonEndToStartDuration = CalculateTimeDifference(moonEnd, moonStart);
+            TimeSpan timeSinceMoonEnd = CalculateTimeDifference(moonEnd, currentTime.TimeOfDay);
+
+            double percentage = timeSinceMoonEnd.TotalMinutes / moonEndToStartDuration.TotalMinutes;
+
+            moonLightRotation = Mathf.Lerp(0, 180, (float)percentage);
+        }
+
+        moonLight.transform.rotation = Quaternion.AngleAxis(moonLightRotation, Vector3.right);
     }
 
     private void UpdateLightSettings()
