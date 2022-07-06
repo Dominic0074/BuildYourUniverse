@@ -13,8 +13,12 @@ public class voiceRecognition: MonoBehaviour
     public GameObject shop;
     public GameObject games;
     public GameObject player;
+    public float spawnDistance;
 
     Vector3 playerPosition;
+    Vector3 playerDirection;
+    Quaternion playerRotation;
+    Vector3 spawnPosition;
 
     void Start()
     {
@@ -25,6 +29,10 @@ public class voiceRecognition: MonoBehaviour
 
     private void OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
+        playerPosition = player.transform.position;
+        playerDirection = player.transform.forward;
+        playerRotation = player.transform.rotation;
+
         StringBuilder builder = new StringBuilder();
         builder.AppendFormat("{0} ({1}){2}", args.text, args.confidence, Environment.NewLine);
         builder.AppendFormat("\tTimestamp: {0}{1}", args.phraseStartTime, Environment.NewLine);
@@ -37,13 +45,13 @@ public class voiceRecognition: MonoBehaviour
         }
         if (args.text == m_Keywords[1])
         {
-            
-            playerPosition = player.transform.position;
-            Instantiate(shop, playerPosition,Quaternion.identity);
+            spawnPosition = playerPosition +playerDirection *spawnDistance;
+            Instantiate(shop, spawnPosition, Quaternion.identity);
         }
         if (args.text == m_Keywords[2])
         {
-            Instantiate(games, new Vector3(0, 0, 1), Quaternion.identity);
+            spawnPosition = playerPosition + playerDirection * spawnDistance;
+            Instantiate(games, spawnPosition, Quaternion.identity);
         }
     }
 }
