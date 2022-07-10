@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
         Instantiate();
     }
 
-    public void RespawnTriggered()
+   /* public void RespawnTriggered()
     {
         if (Collision.Hit == true)
         {
@@ -41,6 +41,7 @@ public class Spawner : MonoBehaviour
             delay = 0; 
         }
     }
+   */
     public void Instantiate()
     {
         for (int i = 0; i < Spawnpoints.Length; i++)
@@ -52,6 +53,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RespawnTriggered();
+        //RespawnTriggered();
     }
 }
