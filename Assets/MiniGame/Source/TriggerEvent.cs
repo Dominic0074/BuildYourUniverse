@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerEvent : MonoBehaviour
 {
-    int points = 0; 
+    public int points = 0; 
     // Start is called before the first frame update
     void Start()
     {
@@ -24,11 +24,7 @@ public class TriggerEvent : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             points++;
-            int Currency = PlayerPrefs.GetInt("Currency");
-            PlayerPrefs.SetInt("Currency", Currency++);
-            PlayerPrefs.Save();
-            Debug.Log("Currency: "+Currency);
-            Debug.Log("Punkte: "+points);
+            
         }
     }
 }
