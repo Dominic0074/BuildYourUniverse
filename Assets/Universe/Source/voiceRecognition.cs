@@ -15,10 +15,10 @@ public class voiceRecognition: MonoBehaviour
     public GameObject player;
     public float spawnDistance;
 
-    Vector3 playerPosition;
-    Vector3 playerDirection;
-    Quaternion playerRotation;
-    Vector3 spawnPosition;
+    private Vector3 playerPosition;
+    private Vector3 playerDirection;
+    private Quaternion playerRotation;
+    private Vector3 spawnPosition;
 
     void Start()
     {
