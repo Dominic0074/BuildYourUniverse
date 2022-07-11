@@ -5,11 +5,7 @@ using UnityEngine.Windows.Speech;
 
 public class voiceRecognition: MonoBehaviour
 {
-    [SerializeField]
-    private string[] m_Keywords;
-
-    private KeywordRecognizer m_Recognizer;
-
+    public SaveHandler SaveHandler1;
     public GameObject shop;
     public GameObject games;
     public GameObject player;
@@ -19,7 +15,12 @@ public class voiceRecognition: MonoBehaviour
     private Vector3 playerDirection;
     private Quaternion playerRotation;
     private Vector3 spawnPosition;
+    
+    [SerializeField]
+    private string[] m_Keywords;
 
+    private KeywordRecognizer m_Recognizer;
+    
     void Start()
     {
         m_Recognizer = new KeywordRecognizer(m_Keywords);
@@ -27,13 +28,14 @@ public class voiceRecognition: MonoBehaviour
         m_Recognizer.Start();
     }
 
-    private void OnPhraseRecognized(PhraseRecognizedEventArgs args)
+    public void OnPhraseRecognized(PhraseRecognizedEventArgs args)
     {
         playerPosition = player.transform.position;
         playerDirection = player.transform.forward;
         playerRotation = player.transform.rotation;
 
         StringBuilder builder = new StringBuilder();
+        
         builder.AppendFormat("{0} ({1}){2}", args.text, args.confidence, Environment.NewLine);
         builder.AppendFormat("\tTimestamp: {0}{1}", args.phraseStartTime, Environment.NewLine);
         builder.AppendFormat("\tDuration: {0} seconds{1}", args.phraseDuration.TotalSeconds, Environment.NewLine);
@@ -53,5 +55,34 @@ public class voiceRecognition: MonoBehaviour
             spawnPosition = playerPosition + playerDirection * spawnDistance;
             Instantiate(games, spawnPosition, Quaternion.identity);
         }
+        if (args.text == m_Keywords[4])
+        {
+            Debug.Log("Save");
+            SaveHandler1.SaveAllObjects = true; 
+            
+            
+        }
     }
+    
+    /*
+      private void Update()
+    {
+        if (OVRInput.Get(OVRInput.Button.One) == true)
+        {
+            spawnPosition = playerPosition + playerDirection * spawnDistance;
+            Instantiate(shop, spawnPosition, Quaternion.identity);
+        }
+    
+        if(OVRInput.GetUp(OVRInput.RawButton.X) == true)
+        {
+           SaveHandler1.SaveAllObjects = true; 
+        }
+        if(OVRInput.Get(OVRInput.Button.Two) == true)
+        {
+            spawnPosition = playerPosition + playerDirection * spawnDistance;
+            Instantiate(games, spawnPosition, Quaternion.identity);
+        }
+    }
+    */
+    
 }

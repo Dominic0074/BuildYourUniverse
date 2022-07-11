@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: -1521377365620091153}
   - component: {fileID: -6287156661090864570}
   - component: {fileID: 5202767193708007994}
+  - component: {fileID: -8214614802538980325}
+  - component: {fileID: -8568679230539117265}
   m_Layer: 0
   m_Name: fe_vil_well_large01D_thatchB
   m_TagString: Untagged
@@ -364,7 +366,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183468}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5afd5316c63705643b3daba5a6e923bd, type: 3}
   m_Name: 
@@ -384,3 +386,66 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.321764, y: 2.9999971, z: 2.2175393}
   m_Center: {x: 0.06828928, y: 1.4999986, z: -0.03259158}
+--- !u!114 &-8214614802538980325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8200a044a5affb843ba856b902d9fd3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 0}
+  boundsOverride: {fileID: 0}
+  boundsCalculationMethod: 0
+  activation: 0
+  flattenAxis: 0
+  uniformScaleOnFlattenedAxis: 1
+  boxPadding: {x: 0, y: 0, z: 0}
+  boxDisplayConfiguration: {fileID: 0}
+  linksConfiguration: {fileID: 0}
+  scaleHandlesConfiguration: {fileID: 0}
+  rotationHandlesConfiguration: {fileID: 0}
+  translationHandlesConfiguration: {fileID: 0}
+  handleProximityEffectConfiguration: {fileID: 0}
+  hideElementsInInspector: 1
+  smoothingActive: 0
+  rotateLerpTime: 0.001
+  scaleLerpTime: 0.001
+  translateLerpTime: 0.001
+  enableConstraints: 1
+  constraintsManager: {fileID: 0}
+  rotateStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  rotateStopped:
+    m_PersistentCalls:
+      m_Calls: []
+  scaleStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  scaleStopped:
+    m_PersistentCalls:
+      m_Calls: []
+  translateStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  translateStopped:
+    m_PersistentCalls:
+      m_Calls: []
+  elasticsManager: {fileID: 0}
+--- !u!114 &-8568679230539117265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 787e8133c0a74894c8e917225ea3d11c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

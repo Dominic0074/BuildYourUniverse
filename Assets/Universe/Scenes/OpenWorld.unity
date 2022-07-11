@@ -217,6 +217,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 50, y: -190, z: 0}
+--- !u!1 &530494448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 530494450}
+  - component: {fileID: 530494449}
+  m_Layer: 0
+  m_Name: SaveHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &530494449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530494448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38372b46f928ae94e9c5839ba9ccdb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SaveAllObjects: 0
+  SavedObjectCount: 0
+  ObjectsToSave: 0
+--- !u!4 &530494450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 530494448}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.999377, y: -4.8600926, z: 7.820203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797130355
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,8 +309,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 0
-  fullDayLength: 30
-  startTime: 0.4
+  fullDayLength: 900
+  startTime: 0.6
   noon: {x: 90, y: 0, z: 0}
   sun: {fileID: 2042241788}
   sunColor:
@@ -468,15 +515,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b2c111622959a4897c5b87c73be462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Keywords:
-  - Exit
-  - Shop
-  - Games
-  - Options
+  SaveHandler1: {fileID: 530494449}
   shop: {fileID: 252498679604840191, guid: c9dfd69044d84c64d87159bbe68f6d96, type: 3}
   games: {fileID: 551744368413514929, guid: 3e04c7126c912bb4bba4963c39bcadc3, type: 3}
   player: {fileID: 1360743198}
   spawnDistance: 1
+  m_Keywords:
+  - Exit
+  - Shop
+  - Games
+  - None
+  - Save
 --- !u!4 &891200007
 Transform:
   m_ObjectHideFlags: 0
@@ -554,6 +603,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Floor: {fileID: 8212950500522343686, guid: 506c255ce915f4346bf6e6adfcc3f270, type: 3}
+  PlacableObjects: []
   PlayerPosition: {x: 1, y: 0, z: 0}
 --- !u!4 &1230026290
 Transform:
@@ -789,7 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d9acc7968244a8886f3af591305bcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeProfile: {fileID: 11400000, guid: 31a611a779d3499e8e35f1a2018ca841, type: 2}
+  activeProfile: {fileID: 11400000, guid: cc23f874d7230c94eadd3232ee52166d, type: 2}
 --- !u!4 &1941012928
 Transform:
   m_ObjectHideFlags: 0

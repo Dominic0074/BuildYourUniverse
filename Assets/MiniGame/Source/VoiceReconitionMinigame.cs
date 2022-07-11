@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class VoiceReconitionMinigame : MonoBehaviour
 {
+    
     [SerializeField]
     private string[] m_Keywords;
 
@@ -31,4 +32,14 @@ public class VoiceReconitionMinigame : MonoBehaviour
             SceneManager.LoadScene("OpenWorld");
         }
     }
+    
+    /*
+      private void Update()
+    {
+        if(OVRInput.Get(OVRInput.Button.One) == true)
+        {
+            SceneManager.LoadScene("OpenWorld");
+        }
+    }
+     */
 }
