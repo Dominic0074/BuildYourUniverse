@@ -64,25 +64,28 @@ public class voiceRecognition: MonoBehaviour
         }
     }
     
+
     /*
-      private void Update()
+    private void Update()
     {
-        if (OVRInput.Get(OVRInput.Button.One) == true)
+        ControllerHandler controllerHandler = FindObjectOfType<ControllerHandler>();
+        if (controllerHandler.secondary == true)
         {
             spawnPosition = playerPosition + playerDirection * spawnDistance;
             Instantiate(shop, spawnPosition, Quaternion.identity);
         }
-    
-        if(OVRInput.GetUp(OVRInput.RawButton.X) == true)
+
+        if (controllerHandler.saveButton > 0)
         {
-           SaveHandler1.SaveAllObjects = true; 
+            SaveHandler1.SaveAllObjects = true;
         }
-        if(OVRInput.Get(OVRInput.Button.Two) == true)
+        if (controllerHandler.primary == true)
         {
             spawnPosition = playerPosition + playerDirection * spawnDistance;
             Instantiate(games, spawnPosition, Quaternion.identity);
         }
     }
-    */
-    
+
+*/
+
 }
