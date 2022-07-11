@@ -50,24 +50,28 @@ public class WorldHandler : MonoBehaviour
 
         foreach (System.IO.FileInfo f in ParentDirectory.GetFiles())
         {
-            SaveHandler Saver = new SaveHandler();
-            
+            SaveHandler Saver = FindObjectOfType<SaveHandler>();
+            //var SaveHandler Saver = gameObject.AddComponent(SaveHandler) as SafeHandler;
+
 
             SaveData data = new SaveData();
             data = Saver.LoadSingleObject(f.Name);
             Vector3 position = new Vector3(data.positionX, data.positionY, data.positionZ);
             Quaternion rotation = new Quaternion(data.rotationX, data.rotationY, data.rotationZ,0.0f);
             Vector3 scale = new Vector3(data.scaleX, data.scaleY, data.scaleZ);
-            int objNr = 0;
             for (int key = 0; key < PlacableObjects.Length; ++key)
             {
                 if (PlacableObjects[key].name == data.ObjectName)
                 {
                     GameObject latestSpawn = Instantiate(PlacableObjects[key],position, rotation );
-                    latestSpawn.transform.localScale = scale; 
-
+                    latestSpawn.transform.localScale = scale;
+                    string name = f.Name;
+                    name = name.Remove(name.Length - 5,5);
+                    latestSpawn.transform.name = name;
                 }
-                    
+                Debug.Log(PlacableObjects[key].name);
+
+
             }
 
             

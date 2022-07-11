@@ -603,7 +603,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Floor: {fileID: 8212950500522343686, guid: 506c255ce915f4346bf6e6adfcc3f270, type: 3}
-  PlacableObjects: []
+  PlacableObjects:
+  - {fileID: 183468, guid: 54866db1a9b220c498fef2c21330cf91, type: 3}
   PlayerPosition: {x: 1, y: 0, z: 0}
 --- !u!4 &1230026290
 Transform:
@@ -634,6 +635,8 @@ GameObject:
   - component: {fileID: 1360743202}
   - component: {fileID: 1360743201}
   - component: {fileID: 1360743200}
+  - component: {fileID: 1360743205}
+  - component: {fileID: 1360743206}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -764,6 +767,35 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!65 &1360743205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360743198}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1360743206
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1360743198}
+  serializedVersion: 2
+  m_Mass: 0.01
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1653279957
 GameObject:
   m_ObjectHideFlags: 0
