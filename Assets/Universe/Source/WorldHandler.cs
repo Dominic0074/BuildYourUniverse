@@ -18,8 +18,8 @@ public class WorldHandler : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("ObjectCount", 0);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetInt("ObjectCount", 0);
+        //PlayerPrefs.Save();
         if (!PlayerPrefs.HasKey("ObjectCount"))
         {
             PlayerPrefs.SetInt("ObjectCount", 0);

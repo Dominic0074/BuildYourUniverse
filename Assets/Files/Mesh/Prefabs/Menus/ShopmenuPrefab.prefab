@@ -642,6 +642,12 @@ MonoBehaviour:
   enforceFrontPush: 1
   TouchBegin:
     m_PersistentCalls:
+      m_Calls: []
+  TouchEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  ButtonPressed:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7259130291059969588}
         m_TargetAssemblyTypeName: SpawnShopObject, Assembly-CSharp
@@ -655,12 +661,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  TouchEnd:
-    m_PersistentCalls:
-      m_Calls: []
-  ButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
   ButtonReleased:
     m_PersistentCalls:
       m_Calls: []
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4129773811302193588}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98c748f3768ab714a8449b60fb9edc5c, type: 3}
   m_Name: 
@@ -1469,6 +1469,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6c3ee6d3c7e2d8d4bb8e69977fe77ef5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 34296726874700977, guid: 6c3ee6d3c7e2d8d4bb8e69977fe77ef5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2367235394539216700, guid: 6c3ee6d3c7e2d8d4bb8e69977fe77ef5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448921541672876941, guid: 6c3ee6d3c7e2d8d4bb8e69977fe77ef5, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
