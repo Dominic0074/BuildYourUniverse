@@ -56,9 +56,6 @@ public class SaveHandler : MonoBehaviour
             SavedObjectCount = 0;
         }
     }
-
-    
-
     private void SetPaths(int ObjectCount)
     {
         path = Application.dataPath + Path.AltDirectorySeparatorChar + "Objects"+ Path.AltDirectorySeparatorChar+ "Object"+ ObjectCount + ".json";
@@ -119,11 +116,7 @@ public class SaveHandler : MonoBehaviour
         SaveData data2 = JsonUtility.FromJson<SaveData>(json);
 
         return data2;
-
     }
-
-
-
 }
 
 public class SaveData

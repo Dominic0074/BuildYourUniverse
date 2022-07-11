@@ -17,15 +17,11 @@ public class BallCollision : MonoBehaviour
         BallPosition = transform.position;
         // save the balls original Rotation
         BallRotation = transform.rotation;
-
     }
-
     // Update is called once per frame
     void Update()
-    {
-        
+    {      
     }
-
     void Respawn()
     {
         Respawner1.IsRespawning = true;
@@ -38,13 +34,11 @@ public class BallCollision : MonoBehaviour
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         //stop the angular velocity of the ball
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
-        //reset the position of the ball
+        //reset the position and rotation of the ball
 
         transform.position = BallPosition;
-        transform.rotation = BallRotation;
-        
-        Respawner1.Respawns++;
-        
+        transform.rotation = BallRotation;        
+        Respawner1.Respawns++;    
     }
     private void OnTriggerEnter(Collider other)
     {

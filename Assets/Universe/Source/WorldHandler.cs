@@ -4,11 +4,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
 
-
-
 public class WorldHandler : MonoBehaviour
 {
-    
     public GameObject Floor;
 
     public GameObject[] PlacableObjects;
@@ -24,7 +21,6 @@ public class WorldHandler : MonoBehaviour
         {
             PlayerPrefs.SetInt("ObjectCount", 0);
         }
-
         this.SetPlayerPosition();
         this.SpawnFloor(this.PlayerPosition);
 
@@ -32,10 +28,7 @@ public class WorldHandler : MonoBehaviour
         {
             Directory.CreateDirectory(Application.persistentDataPath + "/Objects");
         }
-
-        this.SpawnSavedObjects();
-        
-        
+        this.SpawnSavedObjects();       
     }
 
     // Spawn all Saved Objects
@@ -71,17 +64,12 @@ public class WorldHandler : MonoBehaviour
                 }
                 Debug.Log(PlacableObjects[key].name);
 
-
             }
-
-            
-
-            
+                   
             Debug.Log("Datei: " + f.Name);
         }
         
     }
-
 
     // Set Player Position 
     void SetPlayerPosition()
@@ -95,7 +83,6 @@ public class WorldHandler : MonoBehaviour
         PlayerPosition = m_MainCamera.transform.position;
 
     }
-
     
     //Load 1 chunk
     void LoadChunk (int xArray, int zArray, Vector3 Vector)
@@ -125,24 +112,14 @@ public class WorldHandler : MonoBehaviour
 
                 myVector = new Vector3(xAxisFloat, 0.0f, zAxisFloat);
                 LoadChunk(x,z, myVector);
-                z++;
-               
+                z++;              
             }
-
-            x++;
+           x++;
         }
-
-
     }
     
-
-
- 
     // Update is called once per frame
     void Update()
     {
-
     }
-
-
 }
