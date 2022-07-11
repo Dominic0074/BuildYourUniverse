@@ -32,15 +32,15 @@ public class VoiceReconitionMinigame : MonoBehaviour
             SceneManager.LoadScene("OpenWorld");
         }
     }
-    /*
-
-    private void Update()
+    
+    
+     /* private void Update()
     {
         ControllerHandler controllerHandler = FindObjectOfType<ControllerHandler>();
         if (controllerHandler.back == true)
         {
             SceneManager.LoadScene("OpenWorld");
         }
-    }
-    */
+    }*/
+     
 }
