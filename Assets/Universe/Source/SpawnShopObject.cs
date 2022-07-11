@@ -30,7 +30,7 @@ public class SpawnShopObject : MonoBehaviour
         PlayerPrefs.SetInt("ObjectCount", ObjectCount);
         PlayerPrefs.Save();
 
-        SaveHandler Saving = new SaveHandler();
+        SaveHandler Saving = FindObjectOfType<SaveHandler>();
         Saving.SaveNewObject(itemSpawn.position, itemSpawn.rotation, itemSpawn.localScale, ObjectCount, shopObject.name);
     }
 
